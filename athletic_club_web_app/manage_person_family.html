@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+   <meta charset="utf-8">
+   <title>Manage a Person's Family</title>
+</head>
+<body>
+   <h1>Manage a Person's Family</h1>
+   <div id="display_person_family">
+      <table>
+         <thead>
+            <tr>
+               <th>
+                  Family ID#
+               </th>
+               <th>
+                  Person ID#
+               </th>
+               <th>
+                  First Name
+               </th>
+               <th>
+                  Last Name
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>
+                  {{Family ID#}}
+               </td>
+               <td>
+                  {{Person ID#}}
+               </td>
+               <td>
+                  {{First Name}}
+               </td>
+               <td>
+                  {{Last Name}}
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <a href="link back to this page">Update</a>
+   </div>
+   <div id="manage_families">
+      <form id="update_family_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+         <legend>
+            Update a Person's Family:
+         </legend>
+         <label>Person ID:
+            <input type="number" name="person_id" size="30" maxlength="255"></label>
+            <br>
+         <lable>Family ID:
+            <select name="family_id">
+               <option value="op1">
+                  op1
+               </option>
+               <option value="op2">
+                  op2
+               </option>
+            </select></label>
+            <br>
+         <label>
+         <input type="submit" value="Update Family"></label>
+      </form>
+   </div>
+</body>

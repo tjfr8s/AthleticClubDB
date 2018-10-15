@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+   <meta charset="utf-8">
+   <title>Add and Delete Families</title>
+</head>
+<body>
+   <h1>Add and Delete Families</h1>
+   <div id="display_families">
+      <table>
+         <thead>
+            <tr>
+               <th>
+                  Family ID#
+               </th>
+               <th>
+                  #People
+               </th>
+               <th>
+                  Membership ID#
+               </th>
+               <th>
+                  Bill
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>
+                  {{Family ID#}}
+               </td>
+               <td>
+                  {{#People}}
+               </td>
+               <td>
+                  {{Membership ID#}}
+               </td>
+               <td>
+                  {{Bill}}
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   <div id="add_family">
+      <form id="new_family_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+         <legend>
+            Add a New Family
+         </legend>
+         <label>Membership ID#
+         <select name="membership_id">
+            <option value="id1">
+               id1
+            </option>
+            <option value="id2">
+               id2
+            </option>
+            <option value="null">
+               null
+            </option>
+         </select></label>
+         <label>
+         <input type="submit" value="Add New Family:"></label>
+      </form>
+      <form id="delete_family_form" action="" method="get">
+         <legend>
+            Delete a Family:
+         </legend>
+         <label>Family ID#
+      <input type="number" name="delete_family_id" size="30" maxlength="11"></label>
+      <input type="submit" value="Delete Family">
+      </form>
+   </div>
+</body>

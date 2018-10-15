@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+   <meta charset="utf-8">
+   <title>Manage a Person's Services</title>
+</head>
+<body>
+   <h1>Manage a Person's Services</h1>
+   <div id="display_people_services">
+      <table>
+         <thead>
+            <tr>
+               <th>
+                  Person ID#
+               </th>
+               <th>
+                  First Name
+               </th>
+               <th>
+                  Last Name
+               </th>
+               <th>
+                  Service ID#
+               </th>
+               <th>
+                  Service Name
+               </th>
+               <th>
+                  Cost
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>
+                  {{Person ID#}}
+               </td>
+               <td>
+                  {{First Name}}
+               </td>
+               <td>
+                  {{Last Name}}
+               </td>
+               <td>
+                  {{Service ID#}}
+               </td>
+               <td>
+                  {{Service Name}}
+               </td>
+               <td>
+                  {{Cost}}
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <a href="link back to this page">Update</a>
+   </div>
+   <div id="manage_subscriptions">
+      <form id="subscribe_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+         <legend>
+            Subscribe a Person to a Service:
+         </legend>
+         <label>Person ID:
+         <input type="number" name="person_id" size="30" maxlength="255"></label>
+         <br>
+         <lable>Service ID:
+         <input type="number" name="service_id" size="30" max="255"></lable>
+         <br>
+         <label>
+         <input type="submit" value="Subscribe"></label>
+      </form>
+      <form id="unsubscribe_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+         <legend>
+            Unsubscribe a Person to a Service:
+         </legend>
+         <label>Person ID:
+         <input type="number" name="person_id" size="30" maxlength="255"></label>
+         <br>
+         <lable>Service ID:
+         <input type="number" name="service_id" size="30" max="255"></lable>
+         <br>
+         <label>
+         <input type="submit" value="Unsubscribe"></label>
+      </form>
+   </div>
+</body>

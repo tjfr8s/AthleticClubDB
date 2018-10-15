@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+   <meta charset="utf-8">
+   <title>Add and Delete Memberships</title>
+</head>
+<body>
+   <h1>Add and Delete Memberships</h1>
+   <div id="display_memberships">
+      <table>
+         <thead>
+            <tr>
+               <th>
+                  Membership ID#
+               </th>
+               <th>
+                  # People
+               </th>
+               <th>
+                  Bill
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>
+                  {{ID}}
+               </td>
+               <td>
+                  {{#People}}
+               </td>
+               <td>
+                  {{Bill}}
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   <div id="add_memberships">
+      <form id="new_memberships_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+         <label>
+         <input type="submit" value="Add New Membership"></label>
+      </form>
+   </div>
+   <div id="delete_memberships">
+      <form id="delete_membership_form" action="" method="get">
+         <legend>
+            Delete a membership:
+         </legend>
+         <label>Membership ID#
+         <input type="number" name="membership_id" size="30" maxlength="11"></label>
+         <input type="submit" value="Submit">
+      </form>
+   </div>
+</body>

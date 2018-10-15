@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<head>
+   <meta charset="utf-8">
+   <title>Add and Delete Service</title>
+</head>
+<body>
+   <h1>Add and Delete Service</h1>
+   <div id="display_service">
+      <table>
+         <thead>
+            <tr>
+               <th>
+                  Service ID#
+               </th>
+               <th>
+                  Name
+               </th>
+               <th>
+                  Cost
+               </th>
+               <th>
+                  Location ID#
+               </th>
+               <th>
+                  Location Name
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>
+                  {{Service ID#}}
+               </td>
+               <td>
+                  {{Name}}
+               </td>
+               <td>
+                  {{First Name}}
+               </td>
+               <td>
+                  {{Cost}}
+               </td>
+               <td>
+                  {{Location ID#}}
+               </td>
+               <td>
+                  {{Location Name}}
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   <div id="add_service">
+      <form id="new_service_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+         <legend>
+            Add a New Service:
+         </legend>
+         <label>Name:
+         <input type="text" name="service_name" size="30" maxlength="255"></label>
+         <br>
+         <lable>Cost:
+         <input type="number" name="service_cost" size="30" max="255"></lable>
+         <br>
+         <label>Location ID#:
+         <select name="location_id">
+            <option value="id1">
+               id1
+            </option>
+            <option value="id2">
+               id2
+            </option>
+         </select></label>
+         <br>
+         <label>
+         <input type="submit" value="Add Service"></label>
+      </form>
+      <form id="delete_service_form" action="" method="get">
+         <legend>
+            Delete a Service:
+         </legend>
+         <label>Service ID#
+      <input type="number" name="delete_service_id" size="30" maxlength="11"></label>
+      <input type="submit" value="Delete Service">
+      </form>
+   </div>
+</body>
