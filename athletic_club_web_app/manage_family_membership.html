@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+   <meta charset="utf-8">
+   <title>Manage a Family's Membership</title>
+</head>
+<body>
+   <h1>Manage a Family's Membership</h1>
+   <div id="display_family_membership">
+      <table>
+         <thead>
+            <tr>
+               <th>
+                  Family ID#
+               </th>
+               <th>
+                  Membership ID#
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>
+                  {{Family ID#}}
+               </td>
+               <td>
+                  {{Membership ID#}}
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <a href="link back to this page">Update</a>
+   </div>
+   <div id="manage_memberships">
+      <form id="update_membership_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+         <legend>
+            Update a Family's Membership:
+         </legend>
+         <label>Family ID:
+            <input type="number" name="family_id" size="30" maxlength="255"></label>
+            <br>
+         <lable>Membership ID:
+            <select name="membership_id">
+               <option value="op1">
+                  op1
+               </option>
+               <option value="op2">
+                  op2
+               </option>
+               <option value="none">
+                  none
+               </option>
+            </select></label>
+            <br>
+         <label>
+         <input type="submit" value="Update Membership"></label>
+      </form>
+   </div>
+</body>
