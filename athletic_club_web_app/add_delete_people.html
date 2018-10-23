@@ -5,7 +5,53 @@
 </head>
 <body>
    <h1>Add and Delete People</h1>
+   <div id="add_person">
+      <form id="new_person_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+         <legend>
+            Add a New Person:
+         </legend>
+         <label>Last Name:
+         <input type="text" name="last_name" size="30" maxlength="255"></label>
+         <br>
+         <lable>First Name:
+         <input type="text" name="last_name" size="30" max="255"></lable>
+         <br>
+         <label>Family ID#:
+         <select name="family_id">
+            <option value="id1">
+               id1
+            </option>
+            <option value="id2">
+               id2
+            </option>
+         </select></label>
+         <br>
+         <label>Date of Birth:
+         <input type="date" name="date_of_birth" size="30" maxlength="11"></label>
+         <br>
+         <label>Zip Code:
+         <input type="number" name="zip_code" size="30" maxlength="30"></label>
+         <br>
+         <label>State:
+         <input type="text" name="state" size="30" max="2"></label>
+         <br>
+         <label>Street Address:
+         <input type="text" name="street_address" size="30" maxlength="255"></label>
+         <br>
+         <label>
+         <input type="submit" value="Add New Person"></label>
+      </form>
+      <form id="delete_person_form" action="" method="get">
+         <legend>
+            Delete a Person:
+         </legend>
+         <label>Person ID#
+      <input type="number" name="delete_person_id" size="30" maxlength="11"></label>
+      <input type="submit" value="Delete Person">
+      </form>
+   </div>
    <div id="display_people">
+      <a href="./add_delete_people.html">Update</a>
       <table>
          <thead>
             <tr>
@@ -65,51 +111,5 @@
             </tr>
          </tbody>
       </table>
-      <a href="./add_delete_people.html">Update</a>
-   </div>
-   <div id="add_person">
-      <form id="new_person_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
-         <legend>
-            Add a New Person:
-         </legend>
-         <label>Last Name:
-         <input type="text" name="last_name" size="30" maxlength="255"></label>
-         <br>
-         <lable>First Name:
-         <input type="text" name="last_name" size="30" max="255"></lable>
-         <br>
-         <label>Family ID#:
-         <select name="family_id">
-            <option value="id1">
-               id1
-            </option>
-            <option value="id2">
-               id2
-            </option>
-         </select></label>
-         <br>
-         <label>Date of Birth:
-         <input type="date" name="date_of_birth" size="30" maxlength="11"></label>
-         <br>
-         <label>Zip Code:
-         <input type="number" name="zip_code" size="30" maxlength="30"></label>
-         <br>
-         <label>State:
-         <input type="text" name="state" size="30" max="2"></label>
-         <br>
-         <label>Street Address:
-         <input type="text" name="street_address" size="30" maxlength="255"></label>
-         <br>
-         <label>
-         <input type="submit" value="Add New Person"></label>
-      </form>
-      <form id="delete_person_form" action="" method="get">
-         <legend>
-            Delete a Person:
-         </legend>
-         <label>Person ID#
-      <input type="number" name="delete_person_id" size="30" maxlength="11"></label>
-      <input type="submit" value="Delete Person">
-      </form>
    </div>
 </body>

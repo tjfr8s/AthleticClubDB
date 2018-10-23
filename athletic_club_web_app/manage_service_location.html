@@ -5,7 +5,33 @@
 </head>
 <body>
    <h1>Manage a Service's Location</h1>
+   <div id="manage_locations">
+      <form id="update_location_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+         <legend>
+            Update a Service's Location:
+         </legend>
+         <label>Service ID:
+            <input type="number" name="service_id" size="30" maxlength="255"></label>
+            <br>
+         <lable>Location ID:
+            <select name="location_id">
+               <option value="op1">
+                  op1
+               </option>
+               <option value="op2">
+                  op2
+               </option>
+               <option value="none">
+                  none
+               </option>
+            </select></label>
+            <br>
+         <label>
+         <input type="submit" value="Change Location"></label>
+      </form>
+   </div>
    <div id="display_service_location">
+      <a href="manage_service_location.html">Update Table</a>
       <form id="search_service_id" action="" method="get">
          <label>Enter service ID to search
             <input type="text" name="service_id_search" size="30" max="255"></label>
@@ -45,31 +71,7 @@
             </tr>
          </tbody>
       </table>
-      <a href="manage_service_location.html">Update</a>
+
    </div>
-   <div id="manage_locations">
-      <form id="update_location_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
-         <legend>
-            Update a Service's Location:
-         </legend>
-         <label>Service ID:
-            <input type="number" name="service_id" size="30" maxlength="255"></label>
-            <br>
-         <lable>Location ID:
-            <select name="location_id">
-               <option value="op1">
-                  op1
-               </option>
-               <option value="op2">
-                  op2
-               </option>
-               <option value="none">
-                  none
-               </option>
-            </select></label>
-            <br>
-         <label>
-         <input type="submit" value="Change Location"></label>
-      </form>
-   </div>
+
 </body>
