@@ -2,39 +2,42 @@
 <head>
    <meta charset="utf-8">
    <title>Manage a Family's Membership</title>
+   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
    <h1>Manage a Family's Membership</h1>
    <div id="manage_memberships">
-      <form id="update_membership_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
-         <legend>
-            Update a Family's Membership:
-         </legend>
-         <label>Family ID:
-            <input type="number" name="family_id" size="30" maxlength="255"></label>
-            <br>
-         <lable>Membership ID:
-            <select name="membership_id">
-               <option value="op1">
-                  op1
-               </option>
-               <option value="op2">
-                  op2
-               </option>
-               <option value="none">
-                  none
-               </option>
-            </select></label>
-            <br>
-         <label>
-         <input type="submit" value="Update Membership"></label>
+      <form id="update_membership_form" class="manage_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+         <fieldset>
+            <legend>
+               Update a Family's Membership:
+            </legend>
+            <label>Family ID:
+               <input type="number" name="family_id" size="30" maxlength="255"></label>
+               <br>
+            <lable>Membership ID:
+               <select name="membership_id">
+                  <option value="op1">
+                     op1
+                  </option>
+                  <option value="op2">
+                     op2
+                  </option>
+                  <option value="none">
+                     none
+                  </option>
+               </select></label>
+               <br>
+            <label>
+            <input type="submit" value="Update Membership"></label>
+         </fieldset>
       </form>
    </div>
-   <div id="display_family_membership">
+   <div class="display_data">
       <form id="search_family_id">
-         <label>Enter family ID to search
-            <input type="text" name="family_id_search" size="30" max="255"></label>
-         <input type="submit" value="search">
+            <label>Enter family ID to search
+               <input type="text" name="family_id_search" size="30" max="255"></label>
+            <input type="submit" value="search">
       </form>
       <table>
          <thead>

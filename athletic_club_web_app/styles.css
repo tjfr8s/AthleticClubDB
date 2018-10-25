@@ -1,0 +1,74 @@
+body {
+    background-color: #5E778C;
+    font-family: Helvetica;
+    color: #274660
+}
+
+
+
+input{
+    background-color: #5E778C;
+    border-color: #8396A5;
+}
+
+#home_page_title {
+    font-size: 5em;
+    text-align: center;
+    margin-top: 2em;
+}
+
+.navigation_links {
+    font-size: 1.3em;
+    margin: auto;
+    text-align: center;
+    margin-top: 5em;
+}
+
+.navigation_links a {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+a:link {
+    text-decoration: none;
+    color: #274660;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #B68F5B
+}
+
+a:hover {
+    text-decoration: none;
+    color: #8396A5
+}
+
+a:active {
+    text-decoration: none;
+}
+
+
+
+.add_delete_form {
+    position: relative;
+    margin-top: 1em;
+}
+
+.manage_form {
+    position: relative;
+    margin-top: 1em;
+}
+
+fieldset {
+    border-style: solid;
+    border-color: #274660;
+}
+
+.display_data {
+    position: relative;
+    margin-top: 1em;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #274660;
+}

@@ -2,20 +2,32 @@
 <head>
    <meta charset="utf-8">
    <title>Add and Delete Memberships</title>
+   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
    <h1>Add and Delete Memberships</h1>
    <div id="delete_memberships">
-      <form id="delete_membership_form" action="" method="get">
-         <legend>
-            Delete a membership:
-         </legend>
-         <label>Membership ID#
-         <input type="number" name="membership_id" size="30" maxlength="11"></label>
-         <input type="submit" value="Submit">
+      <form id="delete_membership_form" class="add_delete_form" action="" method="get">
+         <fieldset>
+            <legend>
+               Delete a membership:
+            </legend>
+            <label>Membership ID#
+            <input type="number" name="membership_id" size="30" maxlength="11"></label>
+            <input type="submit" value="Submit">
+         </fieldset>
+      </form>
+         <form id="new_memberships_form" class="add_delete_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+            <fieldset>
+               <legend>
+                  Add a New Empty Membership
+               </legend>
+               <label>
+               <input type="submit" value="Add New Membership"></label>
+            </fieldset>
       </form>
    </div>
-   <div id="display_memberships">
+   <div id="display_memberships" class="display_data">
       <a href="./add_delete_memberships.html">Update</a>
       <table>
          <thead>
@@ -45,11 +57,5 @@
             </tr>
          </tbody>
       </table>
-   </div>
-   <div id="add_memberships">
-      <form id="new_memberships_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
-         <label>
-         <input type="submit" value="Add New Membership"></label>
-      </form>
    </div>
 </body>

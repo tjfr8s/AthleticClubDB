@@ -2,33 +2,38 @@
 <head>
    <meta charset="utf-8">
    <title>Add and Delete Location</title>
+   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
    <h1>Add and Delete Location</h1>
    <div id="add_location">
-      <form id="new_location_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
-         <legend>
-            Add a New Location:
-         </legend>
-         <label>Name:
-         <input type="text" name="service_name" size="30" maxlength="255"></label>
-         <br>
-         <lable>Capacity:
-         <input type="number" name="service_cost" size="30" max="255"></lable>
-         <br>
-         <label>
-         <input type="submit" value="Add Location"></label>
-      </form>
-      <form id="delete_location_form" action="" method="get">
-         <legend>
-            Delete a Location:
-         </legend>
-         <label>Location ID#
-      <input type="number" name="delete_location_id" size="30" maxlength="11"></label>
-      <input type="submit" value="Delete Location">
+      <form id="new_location_form" class="add_delete_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+         <fieldset>
+            <legend>
+               Add a New Location:
+            </legend>
+            <label>Name:
+            <input type="text" name="service_name" size="30" maxlength="255"></label>
+            <br>
+            <lable>Capacity:
+            <input type="number" name="service_cost" size="30" max="255"></lable>
+            <br>
+            <label>
+            <input type="submit" value="Add Location"></label>
+         </form>
+         </fieldset>
+      <form id="delete_location_form" class="add_delete_form" action="" method="get">
+         <fieldset>
+            <legend>
+               Delete a Location:
+            </legend>
+            <label>Location ID#
+         <input type="number" name="delete_location_id" size="30" maxlength="11"></label>
+         <input type="submit" value="Delete Location">
+         </fieldset>
       </form>
    </div>
-   <div id="display_locations">
+   <div id="display_locations" class="display_data">
       <a href="./add_delete_locations.html">Update</a>
       <table>
          <thead>
