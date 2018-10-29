@@ -1,0 +1,119 @@
+<html>
+<body>
+   <h1>Add and Delete People</h1>
+   <a href="./index.html" class="home_page_link">Home</a>
+   <div id="add_person">
+      <form id="new_person_form" class="add_delete_form" action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+         <fieldset>
+            <legend>
+               Add a New Person:
+            </legend>
+            <label>Last Name:
+            <input type="text" name="last_name" size="30" maxlength="255"></label>
+            <br>
+            <lable>First Name:
+            <input type="text" name="last_name" size="30" max="255"></lable>
+            <br>
+            <label>Family ID#:
+            <select name="family_id">
+               <option value="id1">
+                  id1
+               </option>
+               <option value="id2">
+                  id2
+               </option>
+            </select></label>
+            <br>
+            <label>Date of Birth:
+            <input type="date" name="date_of_birth" size="30" maxlength="11"></label>
+            <br>
+            <label>Zip Code:
+            <input type="number" name="zip_code" size="30" maxlength="30"></label>
+            <br>
+            <label>State:
+            <input type="text" name="state" size="30" max="2"></label>
+            <br>
+            <label>Street Address:
+            <input type="text" name="street_address" size="30" maxlength="255"></label>
+            <br>
+            <label>
+            <input type="submit" value="Add New Person"></label>
+         </fieldset>
+      </form>
+      <form id="delete_person_form" class="add_delete_form" action="" method="get">
+         <fieldset>
+            <legend>
+               Delete a Person:
+            </legend>
+            <label>Person ID#
+         <input type="number" name="delete_person_id" size="30" maxlength="11"></label>
+         <input type="submit" value="Delete Person">
+         </fieldset>
+      </form>
+   </div>
+   <div id="display_people" class="display_data">
+      <a href="./add_delete_people.html">Update</a>
+      <table>
+         <thead>
+            <tr>
+               <th>
+                  Person ID#
+               </th>
+               <th>
+                  Last Name
+               </th>
+               <th>
+                  First Name
+               </th>
+               <th>
+                  Family ID#
+               </th>
+               <th>
+                  Date of Birth
+               </th>
+               <th>
+                  Zip Code
+               </th>
+               <th>
+                  State
+               </th>
+               <th>
+                  Street Name
+               </th>
+
+            </tr>
+         </thead>
+         <tbody>
+            {{#each people}}
+            <tr>
+               <td>
+                  {{person_id}}
+               </td>
+               <td>
+                  {{lname}}
+               </td>
+               <td>
+                  {{fname}}
+               </td>
+               <td>
+                  {{family_id}}
+               </td>
+               <td>
+                  {{date_of_birth}}
+               </td>
+               <td>
+                  {{zip_code}}
+               </td>
+               <td>
+                  {{state}}
+               </td>
+               <td>
+                  {{street_name}}
+               </td>
+            </tr>
+            {{/each}}
+         </tbody>
+      </table>
+   </div>
+</body>
+</html>
