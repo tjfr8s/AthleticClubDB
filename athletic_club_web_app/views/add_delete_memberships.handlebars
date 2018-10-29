@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<head>
-   <meta charset="utf-8">
-   <title>Add and Delete Memberships</title>
-   <link rel="stylesheet" href="styles.css">
-</head>
 <body>
    <h1>Add and Delete Memberships</h1>
    <a href="./index.html" class="home_page_link">Home</a>
@@ -45,17 +39,19 @@
             </tr>
          </thead>
          <tbody>
+             {{#each memberships}}
             <tr>
                <td>
-                  {{ID}}
+                  {{membership_id}}
                </td>
                <td>
-                  {{#People}}
+                  {{num_people}}
                </td>
                <td>
-                  {{Bill}}
+                  {{bill}}
                </td>
             </tr>
+            {{/each}}
          </tbody>
       </table>
    </div>

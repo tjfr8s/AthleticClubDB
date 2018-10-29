@@ -13,6 +13,8 @@ app.set('view engine', 'handlebars');
 app.set('port', process.argv[2]);
 app.set('mysql', mysql);
 app.use('/people', require('./people.js'));
+app.use('/families', require('./families.js'));
+app.use('/memberships', require('./memberships.js'));
 app.use('/', express.static('public'));
 
 app.use(function(req,res){

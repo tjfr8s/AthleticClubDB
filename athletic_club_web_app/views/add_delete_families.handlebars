@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<head>
-   <meta charset="utf-8">
-   <title>Add and Delete Families</title>
-   <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+   <html>
+   <body>
    <h1>Add and Delete Families</h1>
    <a href="./index.html" class="home_page_link">Home</a>
    <div id="add_family">
@@ -60,21 +55,24 @@
             </tr>
          </thead>
          <tbody>
+             {{#each families}}
             <tr>
                <td>
-                  {{Family ID#}}
+                  {{family_id}}
                </td>
                <td>
-                  {{#People}}
+                  {{num_people}}
                </td>
                <td>
-                  {{Membership ID#}}
+                  {{membership_id}}
                </td>
                <td>
-                  {{Bill}}
+                  {{bill}}
                </td>
             </tr>
+            {{/each}}
          </tbody>
       </table>
    </div>
 </body>
+</html>
