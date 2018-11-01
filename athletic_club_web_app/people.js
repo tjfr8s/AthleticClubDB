@@ -38,8 +38,7 @@ module.exports = function(){
             }
         }
     });
-// BUG: page hangs on adding people. I think it is related to inserting
-// html date into sql.
+
     router.post('/', function(req, res){
         var mysql = req.app.get('mysql');
         var sql = "INSERT INTO `person` (`street_name`, `zip_code`, `state`, `family_id`, `fname`,`lname`, `date_of_birth`)VALUES (?, ?, ?, ?, ?, ?, ?);";
