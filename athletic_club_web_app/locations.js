@@ -27,5 +27,20 @@ module.exports = function(){
         }
     });
 
+    router.post('/', function(req, res){
+        var mysql = req.app.get('mysql');
+        var sql = "INSERT INTO `location` (`name`, `capacity`) VALUES (?, ?)";
+        var inserts = [req.body.service_name, req.body.service_cost];
+        sql = mysql.pool.query(sql, inserts, function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+            }
+            else{
+                res.redirect('/locations');
+            }
+        });
+
+    })
+
     return router;
 }();

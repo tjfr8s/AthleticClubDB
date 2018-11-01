@@ -27,5 +27,20 @@ module.exports = function(){
         }
     });
 
+    router.post('/', function (req, res){
+        var mysql = req.app.get('mysql');
+        var sql = "INSERT INTO membership () VALUES ()";
+        var inserts = "";
+        sql = mysql.pool.query(sql, inserts, function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+            }
+            else{
+                res.redirect('/memberships');
+            }
+        });
+
+    });
+
     return router;
 }();
