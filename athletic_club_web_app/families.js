@@ -3,7 +3,7 @@ module.exports = function(){
     var router = express.Router();
 
     function getFamilies(res, mysql, context, complete){
-        mysql.pool.query("SELECT f.family_id, IFNULL(np.num_people,0), m.membership_id, m.bill FROM family f LEFT JOIN (SELECT f.family_id, COUNT(p.person_id) AS num_people FROM family f INNER JOIN person p ON f.family_id = p.family_id GROUP BY f.family_id) AS np ON f.family_id = np.family_id INNER JOIN membership m ON f.membership_id = m.membership_id;", function(error,results, fields){
+        mysql.pool.query("SELECT f.family_id, IFNULL(np.num_people,0) as num_people, m.membership_id, m.bill FROM family f LEFT JOIN (SELECT f.family_id, COUNT(p.person_id) AS num_people FROM family f INNER JOIN person p ON f.family_id = p.family_id GROUP BY f.family_id) AS np ON f.family_id = np.family_id INNER JOIN membership m ON f.membership_id = m.membership_id;", function(error,results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
