@@ -1,70 +1,69 @@
-   <h1>Add and Delete Families</h1>
-   <a href="./index.html" class="home_page_link">Home</a>
-   <div id="add_family">
-      <form id="new_family_form" class="add_delete_form" action="/families" method="post">
-         <fieldset>
-            <legend>
-               Add a New Family
-            </legend>
-            <label>Membership ID#
-            <select name="membership_id">
-                {{#each memberships}}
-                    <option value="{{membership_id}}">
-                        {{membership_id}}
-                    </option>
-                {{/each}}
-            </select></label>
-            <label>
-            <input type="submit" value="Add New Family:"></label>
-         </fieldset>
-      </form>
-      <form id="delete_family_form" class="add_delete_form" action="" method="get">
-         <fieldset>
-            <legend>
-               Delete a Family:
-            </legend>
-            <label>Family ID#
-               <input type="number" name="delete_family_id" size="30" maxlength="11"></label>
-            <input type="submit" value="Delete Family">
-         </fieldset>
-      </form>
-   </div>
-   <div id="display_families" class="display_data">
-      <a href="./add_delete_families.html">Update</a>
-      <table>
-         <thead>
-            <tr>
-               <th>
-                  Family ID#
-               </th>
-               <th>
-                  #People
-               </th>
-               <th>
-                  Membership ID#
-               </th>
-               <th>
-                  Bill
-               </th>
-            </tr>
-         </thead>
-         <tbody>
-             {{#each families}}
-            <tr>
-               <td>
-                  {{family_id}}
-               </td>
-               <td>
-                  {{num_people}}
-               </td>
-               <td>
-                  {{membership_id}}
-               </td>
-               <td>
-                  {{bill}}
-               </td>
-            </tr>
+<h1>Add and Delete Families</h1>
+<div id="add_family">
+  <form id="new_family_form" class="add_delete_form" action="/families" method="post">
+     <fieldset>
+        <legend>
+           Add a New Family
+        </legend>
+        <label>Membership ID#
+        <select name="membership_id">
+            {{#each memberships}}
+                <option value="{{membership_id}}">
+                    {{membership_id}}
+                </option>
             {{/each}}
-         </tbody>
-      </table>
-   </div>
+        </select></label>
+        <label>
+        <input type="submit" value="Add New Family:"></label>
+     </fieldset>
+  </form>
+  <form id="delete_family_form" class="add_delete_form" action="" method="get">
+     <fieldset>
+        <legend>
+           Delete a Family:
+        </legend>
+        <label>Family ID#
+           <input type="number" name="delete_family_id" size="30" maxlength="11"></label>
+        <input type="submit" value="Delete Family">
+     </fieldset>
+  </form>
+</div>
+<div id="display_families" class="display_data">
+  <a href="./add_delete_families.html">Update</a>
+  <table class="table table-striped table-bordered">
+     <thead class="thead-dark">
+        <tr>
+           <th>
+              Family ID#
+           </th>
+           <th>
+              #People
+           </th>
+           <th>
+              Membership ID#
+           </th>
+           <th>
+              Bill
+           </th>
+        </tr>
+     </thead>
+     <tbody>
+         {{#each families}}
+        <tr>
+           <td>
+              {{family_id}}
+           </td>
+           <td>
+              {{num_people}}
+           </td>
+           <td>
+              {{membership_id}}
+           </td>
+           <td>
+              {{bill}}
+           </td>
+        </tr>
+        {{/each}}
+     </tbody>
+  </table>
+</div>
