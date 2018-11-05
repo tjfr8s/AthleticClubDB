@@ -19,6 +19,7 @@ app.use('/families', require('./families.js'));
 app.use('/memberships', require('./memberships.js'));
 app.use('/locations', require('./locations.js'));
 app.use('/services', require('./services.js'));
+app.use('/person_service', require('./person_service.js'));
 app.use('/', express.static('public'));
 
 app.use(function(req,res){

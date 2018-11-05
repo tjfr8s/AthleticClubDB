@@ -1,0 +1,114 @@
+  <h1>Manage a Person's Services</h1>
+  <a href="./index.html" class="home_page_link">Home</a>
+<div id="manage_subscriptions">
+  <form id="subscribe_form" class="manage_form" action="./person_service/subscribe" method="post">
+     <fieldset>
+        <legend>
+           Subscribe a Person to a Service:
+        </legend>
+        <label>Person ID#:
+        <select name="person_id">
+            {{#each person_list}}
+            <option value="{{person_id}}">
+                {{lname}}, {{fname}}
+            </option>
+            {{/each}}
+        </select></label>
+        <br>
+        <label>Service ID#:
+        <select name="location_id">
+            {{#each service_list}}
+            <option value="{{service_id}}">
+                {{name}}
+            </option>
+            {{/each}}
+        </select></label>
+        <br>
+        <label>
+        <input type="submit" value="Subscribe"></label>
+     </fieldset>
+ </form>
+  <form id="unsubscribe_form" class="manage_form" action="./person_service/unsubscribe" method="post">
+     <fieldset>
+        <legend>
+           Unsubscribe a Person from a Service:
+        </legend>
+        <label>Person ID#:
+        <select name="person_id">
+            {{#each person_list}}
+            <option value="{{person_id}}">
+                {{lname}}, {{fname}}
+            </option>
+            {{/each}}
+        </select></label>
+        <br>
+        <label>Service ID#:
+        <select name="location_id">
+            {{#each service_list}}
+            <option value="{{service_id}}">
+                {{name}}
+            </option>
+            {{/each}}
+        </select></label>
+        <br>
+        <label>
+        <input type="submit" value="Unsubscribe"></label>
+     </fieldset>
+ </form>
+
+</div>
+<div id="display_people_services" class="display_data">
+  <form id="search_person_id" action="" method="get">
+     <label>Enter person ID to search
+        <input type="text" name="person_id_search" size="30" max="255"></label>
+     <input type="submit" value="search">
+  </form>
+  <table>
+     <thead>
+        <tr>
+           <th>
+              Person ID#
+           </th>
+           <th>
+              First Name
+           </th>
+           <th>
+              Last Name
+           </th>
+           <th>
+              Service ID#
+           </th>
+           <th>
+              Service Name
+           </th>
+           <th>
+              Cost
+           </th>
+        </tr>
+     </thead>
+     <tbody>
+         {{#each person_service}}
+        <tr>
+           <td>
+              {{person_id}}
+           </td>
+           <td>
+              {{fname}}
+           </td>
+           <td>
+              {{lname}}
+           </td>
+           <td>
+              {{service_id}}
+           </td>
+           <td>
+              {{name}}
+           </td>
+           <td>
+              {{cost}}
+           </td>
+       </tr>
+       {{/each}}
+     </tbody>
+  </table>
+</div>
