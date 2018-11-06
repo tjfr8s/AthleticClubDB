@@ -39,7 +39,7 @@ module.exports = function(){
         }
     });
 
-    router.post('/unsubscribe', function(req, res){
+    router.post('/', function(req, res){
         var mysql = req.app.get('mysql');
         var sql = "INSERT INTO `person` (`street_name`, `zip_code`, `state`, `family_id`, `fname`,`lname`, `date_of_birth`)VALUES (?, ?, ?, ?, ?, ?, ?);";
         var inserts = [req.body.street_address, req.body.zip_code, req.body.state, req.body.family_id, req.body.last_name, req.body.first_name, req.body.date_of_birth];
