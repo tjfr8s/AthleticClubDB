@@ -14,7 +14,7 @@ module.exports = function(){
     }
 
     function getMemberships(res, mysql, context, complete){
-        mysql.pool.query("SELECT m.membership_id FROM membership m;", function(error, results, fields){
+        mysql.pool.query("select membership_id FROM membership WHERE membership_id NOT IN (SELECT membership_id FROM family)", function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
