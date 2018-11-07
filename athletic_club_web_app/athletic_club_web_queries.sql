@@ -88,6 +88,23 @@ INNER JOIN service s ON s.service_id = ps.service_id;
 SELECT s.service_id, s.name, l.location_id, l.name FROM service s
 LEFT JOIN location l ON s.location_id = l.location_id;
 
+-- Populate New Service Location Drop Down
+SELECT name, location_id FROM location;
+
+-- Populate Service Drop Down for person_service
+SELECT service_id, name FROM service;
+
+-- Populate Person Drop Down for person_service
+SELECT person_id, fname, lname FROM person;
+
+-- Populate Family Drop Down for New Person Form
+SELECT family_id FROM family
+
+-- Populate Membership Drop Down for New Family Form
+SELECT membership_id FROM membership WHERE membership_id NOT IN
+(SELECT membership_id FROM family)"
+
+
 --
 -- Modifying Relationships
 --
