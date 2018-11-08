@@ -28,7 +28,7 @@ module.exports = function(){
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = {};
-        context.jsscripts = [];
+        context.jsscripts = ["delete_family.js"];
         var mysql = req.app.get('mysql');
         getFamilies(res, mysql, context, complete);
         getMemberships(res, mysql, context, complete);
@@ -38,6 +38,23 @@ module.exports = function(){
                 res.render('add_delete_families', context);
             }
         }
+    });
+
+    router.delete('/:id', function(req, res){
+        var mysql = req.app.get('mysql');
+        var sql = "DELETE FROM family WHERE family_id = ?";
+        var inserts = [req.params.id];
+        sql == mysql.pool.query(sql, inserts, function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.status(400);
+                res.end();
+            }
+            else{
+                res.status(200).end();
+            }
+        });
+
     });
 
     router.post('/', function(req, res){
