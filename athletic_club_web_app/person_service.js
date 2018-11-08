@@ -66,6 +66,7 @@ module.exports = function(){
             }
         });
     }, function(req, res){
+        console.log("subscribe");
         var callbackCount = 0;
         var context = {};
         context.jsscripts = [];
