@@ -24,10 +24,30 @@ module.exports = function(){
         });
     }
 
+    router.delete('/:id', function(req, res){
+        var mysql = req.app.get('mysql');
+        var sql = "DELETE FROM person WHERE person_id = ?";
+        var inserts = [req.params.id];
+        console.log(sql);
+        console.log(inserts);
+        sql == mysql.pool.query(sql, inserts, function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.status(400);
+                res.end();
+                console.log("400");
+            }
+            else{
+                res.status(202).end();
+                console.log("202");
+            }
+        });
+    });
+
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = {};
-        context.jsscripts = [];
+        context.jsscripts = ["delete_person.js"];
         var mysql = req.app.get('mysql');
         getPeople(res, mysql, context, complete);
         getFamilies(res, mysql, context, complete);
