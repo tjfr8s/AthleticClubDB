@@ -1,6 +1,7 @@
 module.exports = function(){
     var express = require('express');
     var router = express.Router();
+    var updateBills = require("./public/update_bills.js")
 
     function getServices(res, mysql, context, complete){
         mysql.pool.query("SELECT p.person_id, p.fname, p.lname, s.service_id, s.name, s.cost FROM person p INNER JOIN person_service ps ON p.person_id = ps.person_id INNER JOIN service s ON s.service_id = ps.service_id;", function(error,results, fields){
@@ -52,7 +53,7 @@ module.exports = function(){
         }
     });
 
-    router.post('/subscribe', function(req, res){
+    router.post('/subscribe', function(req, res, next){
         var mysql = req.app.get('mysql');
         var sql = "INSERT INTO `person_service` (`person_id`, `service_id`) VALUES (?, ?)";
         var inserts = [req.body.person_id, req.body.location_id];
@@ -61,9 +62,22 @@ module.exports = function(){
                 res.write(JSON.stringify(error));
             }
             else{
-                res.redirect('/person_service');
+                next();
             }
         });
+    }, function(req, res){
+        var callbackCount = 0;
+        var context = {};
+        context.jsscripts = [];
+        var mysql = req.app.get('mysql');
+        updateBills.updateBills(res, mysql, context, complete);
+        function complete(){
+            callbackCount++;
+            if(callbackCount >= 1){
+                res.redirect('/person_service');
+            }
+        }
+
     });
 
 
