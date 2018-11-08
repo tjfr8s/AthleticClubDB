@@ -16,7 +16,7 @@ module.exports = function(){
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = {};
-        context.jsscripts = [];
+        context.jsscripts = ["delete_location.js"];
         var mysql = req.app.get('mysql');
         getLocations(res, mysql, context, complete);
         function complete(){
@@ -25,6 +25,24 @@ module.exports = function(){
                 res.render('add_delete_locations', context);
             }
         }
+    });
+
+    router.delete('/:id', function (req, res){
+        var mysql = req.app.get('mysql');
+        var sql = "DELETE FROM location WHERE location_id = ?";
+        var inserts = [req.params.id];
+        sql = mysql.pool.query(sql, inserts, function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.status(400);
+                res.end();
+                console.log("400");
+            }
+            else{
+                res.status(202).end();
+                console.log("202");
+            }
+        });
     });
 
     router.post('/', function(req, res){
