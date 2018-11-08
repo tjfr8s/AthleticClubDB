@@ -102,7 +102,7 @@ SELECT family_id FROM family
 
 -- Populate Membership Drop Down for New Family Form
 SELECT membership_id FROM membership WHERE membership_id NOT IN
-(SELECT membership_id FROM family)"
+(SELECT membership_id FROM family)
 
 
 --
