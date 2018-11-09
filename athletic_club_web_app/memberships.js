@@ -14,17 +14,31 @@ module.exports = function(){
         });
     }
 
-
-    router.get('/', function(req, res){
+router.get('/',  function(req, res,next){
+        // Middleware function for updating bills before rendering page.
         var callbackCount = 0;
+        var mysql = req.app.get('mysql');
         var context = {};
+        updateBills.updateBills(res, mysql, context, complete);
+        function complete(){
+            // Creates closure with callbackCount keeping track of functions
+            // completed in this middleware function. When they finish, the
+            // next middleware function is invoked.
+            callbackCount++;
+            if(callbackCount >= 1){
+                next();
+            }
+        }
+    }, function(req, res){
+        // Middleware function for getting membershi info and rendering page.
+        var callbackCount = 0;
+        context = {};
         context.jsscripts = ["delete_membership.js"];
         var mysql = req.app.get('mysql');
-        updateBills.updateBills(res, mysql, context, complete);
         getMemberships(res, mysql, context, complete);
         function complete(){
             callbackCount++;
-            if(callbackCount >= 2){
+            if(callbackCount >= 1){
                 res.render('add_delete_memberships', context);
             }
         }
