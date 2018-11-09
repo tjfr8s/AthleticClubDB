@@ -40,7 +40,7 @@ module.exports = function(){
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = {};
-        context.jsscripts = [];
+        context.jsscripts = ["delete_person_service.js"];
         var mysql = req.app.get('mysql');
         getServices(res, mysql, context, complete);
         getServiceList(res, mysql, context, complete);
@@ -49,6 +49,37 @@ module.exports = function(){
             callbackCount++;
             if(callbackCount >= 3){
                 res.render('person_service', context);
+            }
+        }
+    });
+
+    router.delete('/:person_id/:service_id', function(req, res, next){
+        var mysql = req.app.get('mysql');
+        var sql = "DELETE FROM person_service WHERE person_id = ? AND service_id = ?";
+        var inserts = [req.params.person_id, req.params.service_id];
+        sql = mysql.pool.query(sql, inserts, function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.status(400);
+                res.end();
+                console.log("400");
+            }
+            else{
+                next();
+                res.status(202);
+            }
+        });
+    }, function(req, res){
+        var callbackCount = 0;
+        var context = {};
+        context.jsscripts = [];
+        var mysql = req.app.get('mysql');
+        updateBills.updateBills(res, mysql, context, complete);
+        function complete(){
+            callbackCount++;
+            if(callbackCount >= 1){
+                console.log("delete");
+                res.end();
             }
         }
     });
