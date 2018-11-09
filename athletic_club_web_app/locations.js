@@ -1,6 +1,7 @@
 module.exports = function(){
     var express = require('express');
     var router = express.Router();
+    var updateBills = require('./public/update_bills.js');
 
     function getLocations(res, mysql, context, complete){
         mysql.pool.query("SELECT `location_id`, `name`, `capacity` FROM location;", function(error,results, fields){
@@ -27,7 +28,7 @@ module.exports = function(){
         }
     });
 
-    router.delete('/:id', function (req, res){
+    router.delete('/:id', function (req, res, next){
         var mysql = req.app.get('mysql');
         var sql = "DELETE FROM location WHERE location_id = ?";
         var inserts = [req.params.id];
@@ -39,10 +40,24 @@ module.exports = function(){
                 console.log("400");
             }
             else{
-                res.status(202).end();
+                res.status(202);
+                next();
                 console.log("202");
             }
         });
+    }, function(req, res){
+        var callbackCount = 0;
+        var context = {};
+        context.jsscripts = [];
+        var mysql = req.app.get('mysql');
+        updateBills.updateBills(res, mysql, context, complete);
+        function complete(){
+            callbackCount++;
+            if(callbackCount >= 1){
+                console.log("delete");
+                res.end();
+            }
+        }
     });
 
     router.post('/', function(req, res){
