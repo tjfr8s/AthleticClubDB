@@ -1,5 +1,4 @@
   <h1>Manage a Person's Services</h1>
-  <a href="./index.html" class="home_page_link">Home</a>
 <div id="manage_subscriptions">
   <form id="subscribe_form" class="manage_form" action="./person_service/subscribe" method="post">
      <fieldset>
@@ -28,34 +27,6 @@
         <input type="submit" value="Subscribe"></label>
      </fieldset>
  </form>
-  <form id="unsubscribe_form" class="manage_form" action="./person_service/unsubscribe" method="post">
-     <fieldset>
-        <legend>
-           Unsubscribe a Person from a Service:
-        </legend>
-        <label>Person ID#:
-        <select name="person_id">
-            {{#each person_list}}
-            <option value="{{person_id}}">
-                {{lname}}, {{fname}}
-            </option>
-            {{/each}}
-        </select></label>
-        <br>
-        <label>Service ID#:
-        <select name="location_id">
-            {{#each service_list}}
-            <option value="{{service_id}}">
-                {{name}}
-            </option>
-            {{/each}}
-        </select></label>
-        <br>
-        <label>
-        <input type="submit" value="Unsubscribe"></label>
-     </fieldset>
- </form>
-
 </div>
 <div id="display_people_services" class="display_data">
   <form id="search_person_id" action="" method="get">
