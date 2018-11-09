@@ -14,6 +14,21 @@ module.exports = function(){
         });
     }
 
+    function getPeopleWithNameLike(req, res, mysql, context, complete){
+        console.log("get");
+        // Format search query.
+        var query = "SELECT person_id, lname, fname, family_id, date_of_birth, zip_code, state, street_name FROM person WHERE person.fname LIKE " + mysql.pool.escape(req.params.s + '%');
+        console.log(query);
+
+        mysql.pool.query(query, function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+            }
+            context.people = results;
+            complete();
+        })
+    }
+
     function getFamilies(res, mysql, context, complete){
         mysql.pool.query("SELECT family_id FROM family", function(error, results, fields){
             if(error){
@@ -60,7 +75,7 @@ module.exports = function(){
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = {};
-        context.jsscripts = ["delete_person.js"];
+        context.jsscripts = ["delete_person.js", "search_people.js"];
         var mysql = req.app.get('mysql');
         getPeople(res, mysql, context, complete);
         getFamilies(res, mysql, context, complete);
@@ -71,6 +86,22 @@ module.exports = function(){
             }
         }
     });
+
+    router.get('/search/:s', function(req, res){
+        console.log("route");
+        var callbackCount = 0;
+        var context = {};
+        context.jsscripts = ["delete_person.js", "search_people.js"];
+        var mysql = req.app.get("mysql");
+        getPeopleWithNameLike(req, res, mysql, context, complete);
+        getFamilies(res, mysql, context, complete);
+        function complete(){
+            callbackCount++;
+            if(callbackCount >= 2){
+                res.render('add_delete_people', context);
+            }
+        }
+    })
 
     router.post('/', function(req, res){
         var mysql = req.app.get('mysql');
