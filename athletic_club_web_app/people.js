@@ -66,7 +66,9 @@ module.exports = function(){
             callbackCount++;
             if(callbackCount >= 1){
                 console.log("delete");
-                res.end();
+                var context = {};
+                context.jsscripts = ["delete_person.js", "search_people.js"];
+                res.render('add_delete_people', context);
             }
         }
 
@@ -106,7 +108,7 @@ module.exports = function(){
     router.post('/', function(req, res){
         var mysql = req.app.get('mysql');
         var sql = "INSERT INTO `person` (`street_name`, `zip_code`, `state`, `family_id`, `fname`,`lname`, `date_of_birth`)VALUES (?, ?, ?, ?, ?, ?, ?);";
-        var inserts = [req.body.street_address, req.body.zip_code, req.body.state, req.body.family_id, req.body.last_name, req.body.first_name, req.body.date_of_birth];
+        var inserts = [req.body.street_address, req.body.zip_code, req.body.state, req.body.family_id, req.body.first_name, req.body.last_name, req.body.date_of_birth];
         sql = mysql.pool.query(sql, inserts, function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
