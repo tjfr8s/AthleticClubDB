@@ -1,6 +1,7 @@
 module.exports = function(){
     var express = require('express');
     var router = express.Router();
+    var updateBills = require('./public/update_bills.js')
 
     function getFamilies(res, mysql, context, complete){
         mysql.pool.query("SELECT f.family_id, IFNULL(np.num_people,0) as num_people, m.membership_id, m.bill FROM family f LEFT JOIN (SELECT f.family_id, COUNT(p.person_id) AS num_people FROM family f INNER JOIN person p ON f.family_id = p.family_id GROUP BY f.family_id) AS np ON f.family_id = np.family_id INNER JOIN membership m ON f.membership_id = m.membership_id;", function(error,results, fields){
@@ -40,7 +41,7 @@ module.exports = function(){
         }
     });
 
-    router.delete('/:id', function(req, res){
+    router.delete('/:id', function(req, res, next){
         var mysql = req.app.get('mysql');
         var sql = "DELETE FROM family WHERE family_id = ?";
         var inserts = [req.params.id];
@@ -52,9 +53,23 @@ module.exports = function(){
             }
             else{
                 res.status(200).end();
+                next();
             }
         });
 
+    }, function(req, res){
+        var callbackCount = 0;
+        var context = {};
+        context.jsscripts = [];
+        var mysql = req.app.get('mysql');
+        updateBills.updateBills(res, mysql, context, complete);
+        function complete(){
+            callbackCount++;
+            if(callbackCount >= 1){
+                console.log("delete");
+                res.end();
+            }
+        }
     });
 
     router.post('/', function(req, res){
