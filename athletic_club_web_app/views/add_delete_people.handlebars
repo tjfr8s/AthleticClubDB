@@ -121,5 +121,14 @@
          </tbody>
       </table>
    </div>
+   <script js>
+        document.getElementById("first_name_search").onkeydown = function(event) {
+            if(event.keyCode === 13) {
+                console.log("foo");
+                event.preventDefault();
+                searchPeopleByFirstName();
+            }
+        }
+   </script>
 </body>
 </html>
