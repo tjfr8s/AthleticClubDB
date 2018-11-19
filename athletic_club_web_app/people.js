@@ -53,7 +53,6 @@ module.exports = function(){
             }
             else{
                 next();
-                res.status(202);
             }
         });
     }, function(req, res){

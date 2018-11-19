@@ -126,7 +126,11 @@
             if(event.keyCode === 13) {
                 console.log("foo");
                 event.preventDefault();
-                searchPeopleByFirstName();
+                if(this.value != ""){
+
+                    searchPeopleByFirstName();
+
+                }
             }
         }
    </script>
