@@ -102,7 +102,23 @@ module.exports = function(){
             }
         }
 
-    })
+    });
+
+    router.put('/:id', function (req, res){
+        var mysql = req.app.get("mysql");
+        var sql = "UPDATE location SET name = ?, capacity = ? WHERE location_id = ?";
+        var inserts = [req.body.location_name, req.body.location_capacity, req.params.id];
+        sql = mysql.pool.query(sql, inserts, function (error, results, fields){
+            if(error){
+                res.write(JSON.stringiy(error));
+                res.end();
+            }
+            else{
+                res.status(200);
+                res.end();
+            }
+        });
+    });
 
     return router;
 }();
