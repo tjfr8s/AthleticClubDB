@@ -1,0 +1,21 @@
+<body>
+   <h1>Add and Delete Location</h1>
+   <div id="update_location">
+      <form id="update_location_form" class="add_delete_form" action="" method="post">
+         <fieldset>
+            <legend>
+              Update Location:
+            </legend>
+            <label>Name:
+            <input type="text" name="service_name" size="30" maxlength="255" value="{{location.name}}" required></label>
+            <br>
+            <lable>Capacity:
+            <input type="number" name="service_cost" size="30" max="255" value="{{location.capacity}}" required></lable>
+            <br>
+            <label>
+            <input type="submit" value="Update Location"></label>
+         </form>
+         </fieldset>
+   </div>
+
+</body>

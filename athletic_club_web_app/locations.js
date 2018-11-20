@@ -14,6 +14,20 @@ module.exports = function(){
         });
     }
 
+    function getLocation(res, mysql, context, id, complete){
+        var sql = "SELECT * FROM location WHERE location_id = ?;"
+        var inserts = [id];
+        sql = mysql.pool.query(sql, inserts, function(error,results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.location = results[0];
+            complete();
+        });
+    }
+
+
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = {};
@@ -72,6 +86,21 @@ module.exports = function(){
                 res.redirect('/locations');
             }
         });
+
+    })
+
+    router.get('/:id', function(req, res){
+        var callbackCount = 0;
+        var context = {};
+        context.jsscripts = ["update_location.js"];
+        var mysql = req.app.get('mysql');
+        getLocation(res, mysql, context, req.params.id, complete);
+        function complete(){
+            callbackCount++;
+            if(callbackCount >= 1){
+                res.render('manage_location', context);
+            }
+        }
 
     })
 
